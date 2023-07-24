@@ -1,26 +1,26 @@
 {
-  "name": "sandwich-lady",
-  "version": "1.0.0",
-  "description": "Discord bot using Discord.js for Node.js",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/manc1n1/sandwich-lady.git"
-  },
-  "author": "Joe Mancini",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/manc1n1/sandwich-lady/issues"
-  },
-  "homepage": "https://github.com/manc1n1/sandwich-lady#readme",
-  "dependencies": {
-    "discord.js": "^14.11.0",
-    "dotenv": "^16.3.1"
-  },
-  "devDependencies": {
-    "eslint": "^8.45.0"
-  }
+	"name": "sandwich-lady",
+	"version": "1.0.0",
+	"description": "Discord bot using Discord.js for Node.js",
+	"main": "./src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/manc1n1/sandwich-lady.git"
+	},
+	"author": "Joe Mancini",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/manc1n1/sandwich-lady/issues"
+	},
+	"homepage": "https://github.com/manc1n1/sandwich-lady#readme",
+	"dependencies": {
+		"discord.js": "^14.11.0",
+		"dotenv": "^16.3.1"
+	},
+	"devDependencies": {
+		"eslint": "^8.45.0"
+	}
 }

@@ -14,7 +14,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/manc1n1/sandwich-lady">
-    <img src="./public/assets/images/sandwich-lady.png" alt="Logo" width="57.25" height="120">
+    <img src="./static/images/sandwich-lady.png" alt="Logo" width="57.25" height="120">
   </a>
 
 <h3 align="center">sandwich-lady</h3>
