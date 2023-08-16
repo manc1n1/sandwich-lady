@@ -126,7 +126,7 @@ Project Link: [https://github.com/manc1n1/sandwich-lady](https://github.com/manc
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/manc1n1
 [product-screenshot]: images/screenshot.png
-[node.js]: https://img.shields.io/badge/node.js-333333?style=for-the-badge&logo=Node.js
+[node.js]: https://img.shields.io/badge/node.js-333333?style=for-the-badge&logo=nodedotjs
 [nodejs-url]: https://nodejs.org/
-[discord.js]: https://img.shields.io/badge/Discord.js-36393e?style=for-the-badge&logo=Discord
+[discord.js]: https://img.shields.io/badge/Discord.js-36393e?style=for-the-badge&logo=discord
 [discordjs-url]: https://discord.js.org/
