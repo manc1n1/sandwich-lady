@@ -2,22 +2,20 @@
 
 <!-- PROJECT SHIELDS -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+<div align="center">
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Forks][forks-shield]][forks-url]
+[![Contributors][contributors-shield]][contributors-url]
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
   <a href="https://github.com/manc1n1/sandwich-lady">
     <img src="./static/images/sandwich-lady.png" alt="Logo" width="57.25" height="120">
   </a>
 
-<h3 align="center">sandwich-lady</h3>
+<h3 align="center">Sandwich Lady</h3>
 
   <p align="center">
     You look hungry to me. I tell you what - have a Discord Role on me.
@@ -60,8 +58,8 @@ Discord bot that will assign a role determined by a player's total level on the 
 
 ### Built With
 
--   [![nodejs][node.js]][nodejs-url]
--   [![discordjs][discord.js]][discordjs-url]
+[![nodejs][node.js]][nodejs-url]</br>
+[![discordjs][discord.js]][discordjs-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,7 +84,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the ISC License. See [`LICENSE.md`](LICENSE.md) for more information.
+[![ISC License][license-shield]][license-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,9 +92,9 @@ Distributed under the ISC License. See [`LICENSE.md`](LICENSE.md) for more infor
 
 ## Contact
 
-Joe Mancini - [@0xSuspext](https://twitter.com/0xSuspext) - mancinij1111@gmail.com
-
-Project Link: [https://github.com/manc1n1/sandwich-lady](https://github.com/manc1n1/sandwich-lady)
+[![Gmail][gmail-shield]][gmail-url]</br>
+[![X][x-shield]][x-url]</br>
+[![LinkedIn][linkedin-shield]][linkedin-url]</br>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -105,8 +103,8 @@ Project Link: [https://github.com/manc1n1/sandwich-lady](https://github.com/manc
 ## Acknowledgments
 
 -   [Node.js](https://nodejs.org/)
--   [Discord.js](https://discord.js.org/)
 -   [Discord](https://discord.com/developers)
+-   [Discord.js](https://discord.js.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,10 +121,14 @@ Project Link: [https://github.com/manc1n1/sandwich-lady](https://github.com/manc
 [issues-url]: https://github.com/manc1n1/sandwich-lady/issues
 [license-shield]: https://img.shields.io/github/license/manc1n1/sandwich-lady.svg?style=for-the-badge
 [license-url]: https://github.com/manc1n1/sandwich-lady/blob/master/LICENSE.md
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[gmail-shield]: https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white
+[gmail-url]: mailto:mancinij1111@gmail.com
+[linkedin-shield]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
 [linkedin-url]: https://linkedin.com/in/manc1n1
+[x-shield]: https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white
+[x-url]: https://twitter.com/0xSuspext
 [product-screenshot]: images/screenshot.png
-[node.js]: https://img.shields.io/badge/node.js-333333?style=for-the-badge&logo=nodedotjs
+[node.js]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
 [nodejs-url]: https://nodejs.org/
-[discord.js]: https://img.shields.io/badge/Discord.js-36393e?style=for-the-badge&logo=discord
+[discord.js]: https://img.shields.io/badge/Discord.js-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white
 [discordjs-url]: https://discord.js.org/
