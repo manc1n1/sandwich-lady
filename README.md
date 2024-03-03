@@ -105,6 +105,7 @@ Don't forget to give the project a star! Thanks again!
 -   [Node.js](https://nodejs.org/)
 -   [Discord](https://discord.com/developers)
 -   [Discord.js](https://discord.js.org/)
+-   [osrs-json-highscores](https://github.com/maxswa/osrs-json-hiscores)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
