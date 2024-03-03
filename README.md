@@ -15,7 +15,7 @@
     <img src="./static/images/sandwich-lady.png" alt="Logo" width="57.25" height="120">
   </a>
 
-<h3 align="center">Sandwich Lady</h3>
+<h3 align="center">Sandwich lady</h3>
 
   <p align="center">
     You look hungry to me. I tell you what - have a Discord Role on me.
