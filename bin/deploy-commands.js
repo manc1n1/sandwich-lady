@@ -7,7 +7,7 @@ dotenv.config();
 
 const commands = [];
 // Grab all the command files from the commands directory you created earlier
-const foldersPath = path.join(__dirname, 'commands');
+const foldersPath = path.join(__dirname, '../commands');
 const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
@@ -33,27 +33,29 @@ for (const folder of commandFolders) {
 // Construct and prepare an instance of the REST module
 const rest = new REST().setToken(process.env.DISCORD_TOKEN);
 
+const GUILD_ID = process.env.GUILD_ID;
+const CLIENT_ID = process.env.CLIENT_ID;
+
 // and deploy your commands!
 (async () => {
 	try {
-		console.log(
-			`Started refreshing ${commands.length} application (/) commands.`,
+		if (!CLIENT_ID) {
+			throw new Error(
+				'Client ID is required to deploy commands, aborting',
+			);
+		}
+		const SET_COMMANDS_ROUTE = GUILD_ID
+			? Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID)
+			: Routes.applicationCommands(CLIENT_ID);
+		await console.log(
+			`Refreshing application (/) commands${
+				GUILD_ID ? ` for guild ${GUILD_ID}` : ''
+			}`,
 		);
-
-		// The put method is used to fully refresh all commands in the guild with the current set
-		const data = await rest.put(
-			Routes.applicationGuildCommands(
-				process.env.CLIENT_ID,
-				process.env.GUILD_ID,
-			),
-			{ body: commands },
-		);
-
-		console.log(
-			`Successfully reloaded ${data.length} application (/) commands.`,
-		);
+		await rest.put(SET_COMMANDS_ROUTE, { body: commands });
+		process.exit();
 	} catch (error) {
-		// And of course, make sure you catch and log any errors!
 		console.error(error);
+		process.exit(1);
 	}
 })();
