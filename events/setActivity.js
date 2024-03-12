@@ -17,6 +17,11 @@ const states = [
 		name: '2',
 		state: '🥪 have a Discord Role on me.',
 	},
+	{
+		type: ActivityType.Custom,
+		name: '3',
+		state: '🥪 /getrole',
+	},
 ];
 
 module.exports = {
