@@ -25,7 +25,6 @@ module.exports = {
 		function setActivitySequentially() {
 			const state = states[currentIndex];
 			client.user.setActivity(state);
-			console.log(state);
 			currentIndex = (currentIndex + 1) % states.length;
 			setTimeout(setActivitySequentially, 5000);
 		}
