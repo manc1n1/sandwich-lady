@@ -47,12 +47,15 @@ const CLIENT_ID = process.env.CLIENT_ID;
 		const SET_COMMANDS_ROUTE = GUILD_ID
 			? Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID)
 			: Routes.applicationCommands(CLIENT_ID);
-		await console.log(
-			`Refreshing application (/) commands${
-				GUILD_ID ? ` for guild ${GUILD_ID}` : ''
+		console.log(
+			`Refreshing ${commands.length} application (/) commands ${
+				GUILD_ID ? `for guild ${GUILD_ID}` : `for client ${CLIENT_ID}`
 			}`,
 		);
-		await rest.put(SET_COMMANDS_ROUTE, { body: commands });
+		const data = await rest.put(SET_COMMANDS_ROUTE, { body: commands });
+		console.log(
+			`Successfully reloaded ${data.length} application (/) commands.`,
+		);
 		process.exit();
 	} catch (error) {
 		console.error(error);
