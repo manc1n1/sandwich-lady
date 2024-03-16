@@ -26,10 +26,10 @@ function rollItem() {
 	let cumulativeChance = 0;
 	for (const drop of dropTable) {
 		cumulativeChance += drop.chance;
-		if (randomNumber < cumulativeChance) {
+		if (randomNumber <= cumulativeChance) {
 			if (drop.item === 'Baguette') {
 				const staleBaguetteRoll = getRandomNumber(0, 1);
-				if (staleBaguetteRoll < baguetteTable[0].chance) {
+				if (staleBaguetteRoll <= baguetteTable[0].chance) {
 					return baguetteTable[0].item;
 				} else {
 					// If not Stale baguette, return Baguette
