@@ -62,7 +62,8 @@ module.exports = {
 				.setRequired(true),
 		),
 	async execute(interaction) {
-		await interaction.deferReply({ ephemeral: true });
+		// await interaction.deferReply({ ephemeral: true });
+		await interaction.deferReply();
 		const rawRsn = interaction.options.getString('rsn');
 		const rsn = sanitizeRSN(rawRsn);
 		try {
