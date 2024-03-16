@@ -50,7 +50,7 @@ module.exports = {
 		.setName('roll')
 		.setDescription('Try your luck for a Stale baguette'),
 	async execute(interaction) {
-		await interaction.deferReply({ ephemeral: true });
+		await interaction.deferReply();
 		try {
 			const guild = interaction.guild;
 			const member = guild.members.cache.get(interaction.user.id);
