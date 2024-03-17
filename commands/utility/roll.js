@@ -1,35 +1,37 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 const dropTable = [
-	{ item: 'Chocolate bar', chance: 1 / 7 },
-	{ item: 'Kebab', chance: 1 / 7 },
-	{ item: 'Meat pie', chance: 1 / 7 },
-	{ item: 'Roll', chance: 1 / 7 },
-	{ item: 'Square sandwich', chance: 1 / 7 },
-	{ item: 'Triangle sandwich', chance: 1 / 7 },
-	{ item: 'Baguette', chance: 1 / 7.111 },
+	{ item: 'Chocolate bar', chance: 7 },
+	{ item: 'Kebab', chance: 7 },
+	{ item: 'Meat pie', chance: 7 },
+	{ item: 'Roll', chance: 7 },
+	{ item: 'Square sandwich', chance: 7 },
+	{ item: 'Triangle sandwich', chance: 7 },
+	{ item: 'Baguette', chance: 7 },
 ];
 
-const baguetteTable = [{ item: 'Stale baguette', chance: 1 / 64 }];
+const baguetteTable = [{ item: 'Stale baguette', chance: 64 }];
 
 function getRandomNumber(min, max) {
-	return Math.random() * (max - min) + min;
+	return Math.ceil(Math.random() * (max - min) + min);
 }
 
 function rollItem() {
-	let max = 0;
-	// Cumulative max chance (0.9977700544428147)
+	let totalChance = 0;
 	for (const drop of dropTable) {
-		max += drop.chance;
+		totalChance += drop.chance;
 	}
-	const randomNumber = getRandomNumber(0, max);
+	const randomNumber = getRandomNumber(0, totalChance);
 	let cumulativeChance = 0;
 	for (const drop of dropTable) {
 		cumulativeChance += drop.chance;
 		if (randomNumber <= cumulativeChance) {
 			if (drop.item === 'Baguette') {
-				const staleBaguetteRoll = getRandomNumber(0, 1);
-				if (staleBaguetteRoll <= baguetteTable[0].chance) {
+				const staleBaguetteRoll = getRandomNumber(
+					0,
+					baguetteTable[0].chance,
+				);
+				if (staleBaguetteRoll <= 1) {
 					return baguetteTable[0].item;
 				} else {
 					// If not Stale baguette, return Baguette
