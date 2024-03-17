@@ -57,7 +57,7 @@ module.exports = {
 			const guild = interaction.guild;
 			const member = guild.members.cache.get(interaction.user.id);
 			await interaction.followUp(
-				`${member} recieved 1x **${rollItem()}**`,
+				`${member} received 1x **${rollItem()}**`,
 			);
 		} catch (err) {
 			console.error(`Error: ${err.message}`);
