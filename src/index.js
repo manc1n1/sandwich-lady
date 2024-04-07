@@ -3,8 +3,40 @@ const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const dotenv = require('dotenv');
 const { spawn } = require('child_process');
+const sqlite3 = require('sqlite3').verbose();
 
 dotenv.config();
+
+const db = new sqlite3.Database('./db/data.db');
+
+db.serialize(() => {
+	db.run(`
+		CREATE TABLE IF NOT EXISTS guilds (
+			id TEXT PRIMARY KEY,
+			name TEXT
+		)
+	`);
+
+	db.run(`
+		CREATE TABLE IF NOT EXISTS members (
+			id TEXT PRIMARY KEY,
+			username TEXT,
+			guild_id TEXT,
+			FOREIGN KEY(guild_id) REFERENCES guilds(id)
+		)
+	`);
+
+	db.run(`
+		CREATE TABLE IF NOT EXISTS inventory (
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+            member_id TEXT,
+            item_name TEXT,
+			item_quantity INTEGER DEFAULT 0,
+			UNIQUE(member_id, item_name) ON CONFLICT REPLACE,
+            FOREIGN KEY(member_id) REFERENCES members(id)
+		)
+	`);
+});
 
 function deployCommands() {
 	const filePath = 'bin/deploy-commands.js';
