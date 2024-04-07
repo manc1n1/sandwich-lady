@@ -59,7 +59,8 @@ Discord bot that will assign a role determined by a player's total level on the 
 ### Built With
 
 [![nodejs][node.js]][nodejs-url]</br>
-[![discordjs][discord.js]][discordjs-url]
+[![discordjs][discord.js]][discordjs-url]</br>
+[![sqlite][sqlite]][sqlite-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,3 +134,5 @@ Don't forget to give the project a star! Thanks again!
 [nodejs-url]: https://nodejs.org/
 [discord.js]: https://img.shields.io/badge/Discord.js-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white
 [discordjs-url]: https://discord.js.org/
+[sqlite]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
+[sqlite-url]: https://www.sqlite.org/
