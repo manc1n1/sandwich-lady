@@ -1,4 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('./db/data.db');
 
 const dropTable = [
 	{ item: 'Chocolate bar', chance: 7 },
@@ -55,10 +58,19 @@ module.exports = {
 		await interaction.deferReply();
 		try {
 			const guild = interaction.guild;
-			const member = guild.members.cache.get(interaction.user.id);
-			await interaction.followUp(
-				`${member} received 1x **${rollItem()}**`,
+			const memberID = interaction.user.id;
+			const member = guild.members.cache.get(memberID);
+			const itemName = rollItem();
+			await updateInventory(memberID, itemName);
+			await getItemQuantity(memberID, itemName);
+			const allItemsAndQuantities = await getAllItemsAndQuantities(
+				memberID,
 			);
+			let message = `${member} received 1x **${itemName}**\n\n__Inventory:__\n`;
+			allItemsAndQuantities.forEach(({ item_name, item_quantity }) => {
+				message += `**${item_name}**: ***${item_quantity}***\n`;
+			});
+			await interaction.followUp(message);
 		} catch (err) {
 			console.error(`Error: ${err.message}`);
 			await interaction.followUp(`*Error: ${err.message}*`);
@@ -66,3 +78,96 @@ module.exports = {
 		}
 	},
 };
+
+function updateInventory(memberID, itemName) {
+	return new Promise((resolve, reject) => {
+		// Check if the row exists
+		db.get(
+			'SELECT * FROM inventory WHERE member_id = ? AND item_name = ?',
+			[memberID, itemName],
+			(err, row) => {
+				if (err) {
+					console.error('Error checking inventory:', err.message);
+					reject(err);
+					return;
+				}
+				if (row) {
+					// If the row exists, update item_quantity
+					db.run(
+						'UPDATE inventory SET item_quantity = item_quantity + 1 WHERE member_id = ? AND item_name = ?',
+						[memberID, itemName],
+						(err) => {
+							if (err) {
+								console.error(
+									'Error updating inventory:',
+									err.message,
+								);
+								reject(err);
+							} else {
+								console.log('Inventory updated successfully.');
+								resolve();
+							}
+						},
+					);
+				} else {
+					// If the row does not exist, insert a new row
+					db.run(
+						'INSERT INTO inventory (member_id, item_name, item_quantity) VALUES (?, ?, 1)',
+						[memberID, itemName],
+						(err) => {
+							if (err) {
+								console.error(
+									'Error inserting into inventory:',
+									err.message,
+								);
+								reject(err);
+							} else {
+								console.log('New item added to inventory.');
+								resolve();
+							}
+						},
+					);
+				}
+			},
+		);
+	});
+}
+
+function getItemQuantity(memberID, itemName) {
+	return new Promise((resolve, reject) => {
+		db.get(
+			'SELECT item_quantity FROM inventory WHERE member_id = ? AND item_name = ?',
+			[memberID, itemName],
+			(err, row) => {
+				if (err) {
+					reject(err);
+				} else {
+					if (row) {
+						resolve(row.item_quantity);
+					}
+					resolve(0);
+				}
+			},
+		);
+	});
+}
+
+async function getAllItemsAndQuantities(memberID) {
+	return new Promise((resolve, reject) => {
+		db.all(
+			'SELECT item_name, item_quantity FROM inventory WHERE member_id = ?',
+			[memberID],
+			(err, rows) => {
+				if (err) {
+					console.error(
+						'Error fetching items and quantities:',
+						err.message,
+					);
+					reject(err);
+				} else {
+					resolve(rows);
+				}
+			},
+		);
+	});
+}
