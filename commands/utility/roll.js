@@ -16,7 +16,7 @@ const dropTable = [
 const baguetteTable = [{ item: 'Stale baguette', chance: 64 }];
 
 function getRandomNumber(min, max) {
-	return Math.ceil(Math.random() * (max - min) + min);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function rollItem() {
@@ -31,10 +31,10 @@ function rollItem() {
 		if (randomNumber <= cumulativeChance) {
 			if (drop.item === 'Baguette') {
 				const staleBaguetteRoll = getRandomNumber(
-					0,
+					1,
 					baguetteTable[0].chance,
 				);
-				if (staleBaguetteRoll <= 1) {
+				if (staleBaguetteRoll === 1) {
 					return baguetteTable[0].item;
 				} else {
 					// If not Stale baguette, return Baguette
